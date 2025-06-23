@@ -1,0 +1,204 @@
+@font-face {
+      font-family: 'GlassFont'; /* You can choose any name for your font */
+      src: url('/assets/Glass (1).otf') format('opentype');
+     
+    }
+
+
+
+.header {
+  width: 100%;
+}
+
+.header-top {
+  background: linear-gradient(90deg, #FF5B00 0%, #FFC302 100%);
+
+  color: black;
+  text-align: center;
+  padding: 8px 20px;
+  font-size: 14px;
+}
+
+.header-banner {
+  margin: 0;
+}
+
+.header-nav {
+  background-color: white;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 15px 0;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.logo-image{
+  width: 180px;
+  height:50px;
+}
+
+.logo-icon {
+  font-size: 28px;
+}
+
+.logo-text {
+  /* font-weight: 700; */
+  font-size: 18px;
+  line-height: 1.2;
+  color: #333;
+  font-family: 'GlassFont', sans-serif;
+  font-weight: 2000;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-link {
+  background: none;
+  border: none;
+  color: #666;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 8px 16px;
+}
+
+.nav-link:hover {
+  color: #333;
+}
+
+.cta-button {
+  background: linear-gradient(90deg, #0015FF 0%, #1D2680 100%);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.cta-button:hover {
+  background: linear-gradient(90deg, #010C6E 36.54%, #0B4597 100%);
+}
+
+.cta-button:focus {
+  background: linear-gradient(90deg, #010C6E 36.54%, #0B4597 100%);
+  outline: none;
+}
+
+.cta-button:active {
+  background: linear-gradient(90deg, #010C6E 6.25%, #0B4597 51.92%, #010C6E 97.12%);
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  .header-top {
+    padding: 6px 15px;
+    font-size: 12px;
+  }
+  
+  .header-nav {
+    padding: 12px 0;
+  }
+  
+  .nav-container {
+    padding: 0 15px;
+  }
+  
+  .logo-image {
+    width: 140px;
+    height: 40px;
+  }
+  
+  .logo-text {
+    font-size: 16px;
+  }
+  
+  .nav-right {
+    gap: 10px;
+  }
+  
+  .nav-link {
+    font-size: 13px;
+    padding: 6px 10px;
+  }
+  
+  .cta-button {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-top {
+    padding: 5px 10px;
+    font-size: 11px;
+  }
+  
+  .header-nav {
+    padding: 10px 0;
+  }
+  
+  .nav-container {
+    padding: 0 10px;
+  }
+  
+  .logo-image {
+    width: 120px;
+    height: 35px;
+  }
+  
+  .logo-text {
+    font-size: 14px;
+  }
+  
+  .nav-right {
+    gap: 5px;
+  }
+  
+  .nav-link {
+    font-size: 12px;
+    padding: 5px 8px;
+  }
+  
+  /* Hide some nav links on very small screens */
+  .nav-link:not(:last-child) {
+    display: none;
+  }
+  
+  .cta-button {
+    padding: 7px 14px;
+    font-size: 12px;
+  }
+}
+
+/* Show only essential nav items on very small screens */
+@media (max-width: 380px) {
+  .logo-image {
+    width: 100px;
+    height: 30px;
+  }
+  
+  .cta-button {
+    padding: 6px 12px;
+    font-size: 11px;
+  }
+}
+

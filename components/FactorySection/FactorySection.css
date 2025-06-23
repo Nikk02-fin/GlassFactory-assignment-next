@@ -1,0 +1,872 @@
+.factory-section {
+  width: 100%;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.results-count {
+  font-size: 16px;
+  font-weight: 500;
+  color: #000;
+  transition: all 0.3s ease;
+}
+
+.section-controls {
+  display: flex;
+  gap: 10px;
+}
+
+.filter-toggle,
+.map-view-button {
+  background-color: white;
+  border: 1px solid #e0e0e0;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.3s;
+}
+
+.filter-toggle:hover,
+.map-view-button:hover {
+  background-color: #f5f5f5;
+}
+
+.filter-toggle.active {
+  background-color: #000000;
+  color: white;
+  border-color: #000000;
+}
+
+.filter-icon-svg { /* New class for styling the SVG */
+  width: 16px; /* Adjust as needed */
+  height: 16px; /* Adjust as needed */
+  stroke: black; /* Default color */
+  transition: stroke 0.3s; /* Smooth transition for color change */
+}
+
+.filter-toggle.active .filter-icon-svg {
+  stroke: white; /* Color when active (filter panel is open) */
+}
+
+.filter-toggle:not(.active):hover .filter-icon-svg {
+  stroke: #000000; /* Color on hover when not active */
+}
+
+.filter-icon,
+.map-icon {
+  font-size: 16px;
+}
+
+.filter-panel-outer {
+  padding : 20px;
+
+  margin-bottom: 20px;
+
+box-sizing: border-box;
+background: #FFFFFF;
+border: 0.5px solid #999999;
+border-radius: 5px;
+
+}
+
+/* Updated filter panel design */
+.filter-panel {
+
+
+background: #FFFFFF;
+border: 0.5px solid #999999;
+box-shadow: 0px 4px 4px rgba(153, 153, 153, 0.5);
+border-radius: 5px;
+
+}
+
+.filter-title {
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  color: #1A1A1A;
+  padding: 20px 20px 10px;
+  margin: 0;
+}
+
+.filter-divider {
+  width: 100%;
+  height: 0;
+  border-bottom: 0.5px solid #999999;
+  margin: 10px 0;
+}
+
+.filter-content {
+  display: flex;
+  flex-wrap: wrap; /* Or nowrap if columns must stay on one line and space is tight */
+  padding: 20px;
+  justify-content: space-between; /* Distributes space between columns */
+  /* gap: 20px; */ /* If using justify-content: space-between, gap might not be needed or could be used differently */
+}
+
+
+
+
+.filter-section {
+  margin-bottom: 20px;
+}
+
+h4 {
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  color: #1A1A1A;
+  margin: 0 0 15px 0;
+}
+
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.checkbox-label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0;
+  gap: 12px;
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 140%;
+  color: #1E1E1E;
+  cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+  box-sizing: border-box;
+  width: 16px;
+  height: 16px;
+  background: #FFFFFF;
+  border: 1px solid #757575;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"]:checked {
+  background: #2C2C2C;
+  border-radius: 4px;
+}
+
+.show-more {
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  color: #007AFF;
+  background: none;
+  border: none;
+  padding: 5px 0;
+  cursor: pointer;
+  text-align: left;
+}
+
+.select-wrapper {
+  position: relative; /* Crucial for positioning the ::after pseudo-element */
+  margin-bottom: 20px;
+  border-radius: 8px;
+  border: 1px solid #D9D9D9;
+  background: #FFFFFF;
+  /* display: flex; and align-items: center; are not strictly needed here if select is 100% width */
+}
+
+.filter-select {
+  display: block; /* Changed from flex to block */
+  padding: 12px 30px 12px 16px; /* Increased right padding for the arrow */
+  width: 100%; /* Corrected from 150% */
+  height: 40px;
+  border: none; /* Border is on the wrapper */
+  background: transparent; /* Background is on the wrapper */
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 100%; /* Or normal */
+  color: #1E1E1E;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+  box-sizing: border-box; /* Ensure padding doesn't add to width */
+}
+
+.select-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 12px; /* Adjust horizontal position of the arrow */
+  width: 5px;   /* Width of the shorter leg of the V */
+  height: 10px;  /* Height of the longer leg of the V */
+  border: solid #1E1E1E; /* Arrow color */
+  border-width: 0 2px 2px 0; /* Creates an L shape: no top, right 2px, bottom 2px, no left */
+  transform: translateY(-60%) rotate(45deg); /* Rotate L to V, adjust vertical centering. -60% or -70% often works better for asymmetric V */
+  pointer-events: none;
+}
+
+.slider-container {
+  margin-top: 10px;
+  max-width: 100%;
+}
+
+.slider-labels {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  line-height: 140%;
+  color: #1A1A1A;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.range-slider-container {
+  position: relative;
+  height: 40px;
+  margin-bottom: 10px;
+}
+
+.slider-track {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  height: 6px;
+  background: #E6E6E6;
+  border-radius: 3px;
+}
+
+.slider-range {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  background: #2C2C2C;
+  border-radius: 3px;
+}
+
+.range-slider {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  outline: none;
+  pointer-events: none;
+  height: 6px;
+}
+
+.range-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #2C2C2C;
+  border: 3px solid #FFFFFF;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.range-slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: #2C2C2C;
+  border: 3px solid #FFFFFF;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+  cursor: pointer;
+  pointer-events: auto;
+  border: none;
+}
+
+.range-slider::-webkit-slider-thumb:hover {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  transform: scale(1.1);
+}
+
+.range-slider::-moz-range-thumb:hover {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  transform: scale(1.1);
+}
+
+.slider-values {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.slider-marks {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.slider-mark {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: #757575;
+  padding: 0 4px;
+}
+
+.filter-buttons {
+  display: flex;
+  justify-content: flex-end;
+  padding: 15px 20px;
+}
+
+.reset-button {
+  box-sizing: border-box;
+  width: 105px;
+  height: 51px;
+  background: #FFFFFF;
+  border: 0.5px solid #999999;
+  border-radius: 5px;
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  text-align: center;
+  color: #1A1A1A;
+  cursor: pointer;
+}
+
+/* Active filters bar */
+.active-filters-bar {
+  background-color: #ffffff;
+  border: 1px solid #878787;
+  border-radius: 5px;
+  padding: 16px 24px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  position: relative;
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.active-filters-label {
+  font-size: 15px;
+  color: #555;
+  font-weight: 400;
+  white-space: nowrap;
+  margin-right: 8px;
+}
+
+.active-filter-tags {
+  display: flex;
+  gap: 12px;
+  flex: 1;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.active-filter-tag {
+  background-color: #ffffff;
+  border: 1px solid #d0d0d0;
+  padding: 4px 16px;
+  padding-right: 12px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.remove-filter {
+  background: none;
+  border: none;
+  font-size: 18px;
+  line-height: 1;
+  color: #999;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
+  font-weight: 300;
+}
+
+.remove-filter:hover {
+  color: #666;
+}
+
+.clear-all-link {
+  background: none;
+  border: none;
+  color: #333;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+  white-space: nowrap;
+  padding: 0;
+  transition: color 0.2s;
+  margin-left: auto;
+}
+
+.clear-all-link:hover {
+  color: #000;
+  text-decoration: underline;
+}
+
+.factory-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 20px;
+  position: relative;
+  min-height: 300px;
+  justify-items: center;
+}
+
+.factory-card-wrapper {
+  animation: cardEntrance 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  opacity: 0;
+  transform: translateY(30px) scale(0.9);
+  transform-origin: center center;
+}
+
+@keyframes cardEntrance {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
+    filter: blur(3px);
+  }
+  50% {
+    filter: blur(0px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Add a shimmer effect while loading */
+.factory-grid.loading::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  to {
+    left: 100%;
+  }
+}
+
+/* Hover effect for cards */
+.factory-card-wrapper {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.factory-card-wrapper:hover {
+  transform: translateY(-5px);
+}
+
+@media (max-width: 1200px) {
+  .filter-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .filter-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .factory-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .active-filters-bar {
+    padding: 12px 20px;
+    gap: 12px;
+  }
+  
+  .active-filters-label {
+    font-size: 14px;
+  }
+  
+  .active-filter-tags {
+    gap: 10px;
+  }
+  
+  .active-filter-tag {
+    font-size: 13px;
+    padding: 6px 12px;
+    padding-right: 10px;
+  }
+  
+  .remove-filter {
+    font-size: 16px;
+  }
+  
+  .clear-all-link {
+    font-size: 14px;
+  }
+  .filter-content > .filter-column:nth-child(4) {
+    width:100%;
+    margin-top: 20px;
+  }
+}
+
+/* Pagination Styles */
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  padding: 20px 0;
+}
+
+.pagination-button {
+  background-color: white;
+  border: 1px solid #e0e0e0;
+  padding: 0 20px;
+  height: 36px;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.pagination-button:hover:not(:disabled) {
+  background-color: #f5f5f5;
+  border-color: #ccc;
+  color: #333;
+}
+
+.pagination-button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  color: #ccc;
+}
+
+.pagination-numbers {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.pagination-number {
+  width: 36px;
+  height: 36px;
+  background-color: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  padding: 0;
+}
+
+.pagination-number:hover {
+  background-color: #f5f5f5;
+  border-color: #ccc;
+}
+
+.pagination-number.active {
+  background-color: #000000;
+  color: white;
+  border-color: #000000;
+}
+
+.pagination-ellipsis {
+  color: #999;
+  font-size: 14px;
+  padding: 0 5px;
+  width: auto;
+  display: flex;
+  align-items: center;
+  height: 36px;
+}
+
+@media (max-width: 768px) {
+
+   .filter-panel-outer {
+    padding: 0px;
+  }
+
+  .filter-column {
+    width: 100%;
+  }
+  
+  .filter-column {
+    width: 100%; /* Existing rule, acts as a default. Specific nth-child rules below will override. */
+  }
+  
+  /* New layout rules for filter columns */
+  .filter-content > .filter-column {
+    box-sizing: border-box; /* Ensures padding and border are included in the element's total width and height */
+    margin-bottom: 20px; /* Default vertical spacing between items/rows */
+    margin-top: 0; /* Reset any top margin from other general rules */
+  }
+
+  .filter-content > .filter-column:nth-child(1) {
+    order: 1; /* First in visual order */
+    width: 50%;
+    padding-right: 10px; /* Creates a 20px gap with the 3rd column's padding-left */
+  }
+
+  .filter-content > .filter-column:nth-child(3) {
+    order: 2; /* Second in visual order, appears next to the 1st column */
+    width: 50%;
+    padding-left: 10px; /* Creates a 20px gap with the 1st column's padding-right */
+  }
+
+  .filter-content > .filter-column:nth-child(2) {
+    order: 3; /* Third in visual order, appears on a new row */
+    width: 100%;
+  }
+
+  .filter-content > .filter-column:nth-child(4) {
+    order: 4; /* Fourth in visual order, appears on a new row */
+    width: 100%;
+    margin-bottom: 0; /* Last item in this specific layout flow */
+    /* If an existing rule like .filter-content > .filter-column:nth-child(4) { margin-top: 20px; } exists, 
+       that margin-top will still apply, providing space above this column, which is acceptable. */
+  }
+
+  .pagination-container {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  
+  .pagination-button {
+    padding: 0 16px;
+    height: 32px;
+    font-size: 13px;
+  }
+  
+  .pagination-number {
+    width: 32px;
+    height: 32px;
+    font-size: 13px;
+  }
+  
+  .pagination-ellipsis {
+    height: 32px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .active-filters-bar {
+    padding: 10px 16px;
+    gap: 10px;
+  }
+  
+  .active-filters-label {
+    font-size: 13px;
+  }
+  
+  .active-filter-tags {
+    gap: 8px;
+  }
+  
+  .active-filter-tag {
+    font-size: 12px;
+    padding: 5px 10px;
+    padding-right: 8px;
+  }
+  
+  .remove-filter {
+    font-size: 14px;
+  }
+  
+  .clear-all-link {
+    font-size: 13px;
+  }
+  
+  .pagination-container {
+    gap: 4px;
+  }
+  
+  .pagination-button {
+    padding: 0 12px;
+  }
+  
+  .pagination-text {
+    display: none;
+  }
+  
+  .pagination-arrow {
+    font-size: 16px;
+  }
+  
+  .pagination-number {
+    width: 30px;
+    height: 30px;
+    font-size: 12px;
+  }
+  
+  .pagination-ellipsis {
+    height: 30px;
+    font-size: 12px;
+    padding: 0 2px;
+  }
+}
+
+/* No Results Styles */
+.no-results {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px;
+  text-align: center;
+  min-height: 400px;
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.no-results-icon {
+  font-size: 64px;
+  margin-bottom: 20px;
+  opacity: 0.5;
+}
+
+.no-results-title {
+  font-size: 28px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0 0 12px 0;
+}
+
+.no-results-message {
+  font-size: 16px;
+  color: #666;
+  margin: 0 0 8px 0;
+  max-width: 400px;
+}
+
+.no-results-suggestion {
+  font-size: 14px;
+  color: #999;
+  margin: 0 0 24px 0;
+}
+
+.clear-filters-button {
+  background-color: #1a1a1a;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.clear-filters-button:hover {
+  background-color: #333;
+}
+
+@media (max-width: 768px) {
+  .no-results {
+    padding: 60px 20px;
+    min-height: 300px;
+  }
+  
+  .no-results-icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+  }
+  
+  .no-results-title {
+    font-size: 24px;
+  }
+  
+  .no-results-message {
+    font-size: 15px;
+  }
+  
+  .no-results-suggestion {
+    font-size: 13px;
+  }
+  
+  .clear-filters-button {
+    padding: 10px 20px;
+    font-size: 13px;
+  }
+}

@@ -1,0 +1,291 @@
+@font-face {
+      font-family: 'GlassFont'; /* You can choose any name for your font */
+      src: url('/assets/Glass (1).otf') format('opentype');
+     
+    }
+
+     @font-face {
+      font-family: 'GlassFontBold'; /* You can choose any name for your font */
+      src: url('/assets/Glass-Bold (1).otf') format('opentype');
+     
+    }
+
+
+
+
+/* Factory Card Container */
+.factory-card {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 16px;
+  gap: 16px;
+  width: 360px;
+  height: 480px;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center center;
+}
+
+.factory-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  border-color: rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+  background: #F7F7F7;
+}
+
+/* Image Container */
+.factory-image-container {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  /* padding: 9px 8px; */
+  gap: 8px;
+  width: 100%;
+  height: 315px;
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Tags Overlay */
+.factory-tags-overlay {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0px;
+  gap: 10px;
+  position: absolute;
+  top: 9px;
+  left: 8px;
+  z-index: 10;
+}
+
+/* Tag Badges */
+.tag-badge {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 9px;
+  gap: 3px;
+  /* height: 20px; */
+  box-shadow: 0px 3px 3px rgba(255, 255, 255, 0.25);
+  border-radius: 12px;
+  backdrop-filter: blur(4px);
+  transition: box-shadow 0.3s, transform 0.2s;
+}
+
+.tag-badge span {
+  font-family: 'GlassFontBold', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 11px;
+  line-height: 13px;
+  text-align: center;
+  padding-top:3px;
+}
+
+.tag-badge svg {
+  width: 13px;
+  height: 13px;
+}
+
+.tag-new {
+  background: linear-gradient(90deg, #0B4597 0%, #010C6E 82.63%);
+}
+
+.tag-new span {
+  color: #FEFEFE;
+}
+
+.tag-certified {
+  background: linear-gradient(90deg, #8DBAD8 0%, #D6EAF8 100%);
+}
+
+.tag-certified span {
+  color: #0A0A0A;
+}
+
+.tag-visited {
+  background: linear-gradient(90deg, #FF5B00 0%, rgba(255, 195, 2, 0.88) 100%);
+}
+
+.tag-visited span {
+  color: #0A0A0A;
+}
+
+.tag-badge.tag-new,
+.tag-badge.tag-certified,
+.tag-badge.tag-visited {
+  box-shadow: none;
+}
+
+.tag-badge:hover, .tag-badge:focus {
+  transform: scale(1.08) translateY(-2px);
+  z-index: 2;
+  box-shadow: 0 0 12px 2px rgba(255,255,255,0.7), 0 2px 8px 0 rgba(0,0,0,0.08);
+  filter: brightness(1.08) saturate(1.1);
+}
+
+/* Images */
+.factory-single-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Factory Info Section */
+.factory-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 10px;
+  gap: 9px;
+  width: 100%;
+  height: 118px;
+}
+
+/* Factory Header */
+.factory-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 6px;
+  width: 100%;
+}
+
+.factory-name {
+  font-family: 'GlassFont', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 29px;
+  color: #000000;
+  margin: 0;
+}
+
+.factory-location {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0px;
+  gap: 4px;
+  opacity: 0.9;
+}
+
+.factory-location svg {
+  width: 19px;
+  height: 19px;
+}
+
+.factory-location span {
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 15px;
+  color: #0A0A0A;
+}
+
+/* Metrics Section */
+.factory-metrics {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  gap: 32px;
+  width: 100%;
+}
+
+.metric {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  gap: 7px;
+}
+
+.metric svg {
+  width: 19px;
+  height: 19px;
+}
+
+.metric-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0px;
+}
+
+.metric-label {
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 14px;
+  color: #4B4B4B;
+}
+
+.metric-value {
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 11px;
+  line-height: 14px;
+  color: #1A1A1A;
+}
+
+/* Specialties Tags */
+.factory-specialties {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  gap: 6px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.specialty-tag {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 3px 10px;
+  background: #F1F1F1;
+  border-radius: 25px;
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 14px;
+  text-align: center;
+  color: #0A0A0A;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+}
+
+.specialty-tag.more {
+  background: #E0E0E0;
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .factory-card {
+    width: 100%;
+    max-width: 360px;
+  }
+}
