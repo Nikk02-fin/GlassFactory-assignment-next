@@ -1,3 +1,18 @@
+Here’s a professional and clear README section for your project, tailored for your deployed app at https://glass-factory-assignment-fxd3.vercel.app:
+
+Glass Factory Services Page A modern, responsive web application for discovering and filtering manufacturing partners, built as a frontend assignment. This project replicates a Figma design and goes beyond the base requirements with advanced filtering, smooth animations, and a polished user experience. Live Demo: glass-factory-assignment-fxd3.vercel.app
+
+Features
+
+Advanced Filtering: Search and filter factories by specialty, location, certifications, and more.
+Fast & Responsive: Built with React and Vite for instant loading and smooth navigation.
+Modern UI: Clean, accessible design inspired by Figma, with custom badges and interactive elements.
+Tagging System: Visual tags for "New", "Certified", and "Visited" factories.
+Animations: Subtle transitions and hover effects for a delightful UX.
+Mobile Friendly: Fully responsive layout for all devices.
+
+
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
